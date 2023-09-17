@@ -194,8 +194,8 @@ def start_Controller_249_Client():
     # select mongo collection in db
     # put the combined json data into db
 
-    client = MongoClient(
-        "mongodb://administrator:administrator@140.118.70.40:27017/")
+    MongoClient_data=os.getenv('MongoClient')
+    client = MongoClient(MongoClient_data)
     db1 = client['Client']
     col1 = db1["Controller4"]
     col1.insert_many(data_json3)
