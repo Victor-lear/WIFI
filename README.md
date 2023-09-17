@@ -1,8 +1,8 @@
 ---
 tags: 【WIFI_AP】
 ---
-**點擊展開目錄**
-[TOC]
+- [一级标题]
+- [二级标题]
 # Linux_CentOS 8 installing
 ## Robo3T install
 - [Robo3T安裝參考網站](https://www.centlinux.com/2020/09/install-robo-3t-mongodb-gui-on-centos-8.html  )
@@ -80,5 +80,5 @@ Terminal輸入`sudo nano /etc/mongod.conf`
   -  `mongodb-grafana/server`
 - Start api at background
   - `forever start mongodb-proxy.js`
-- 備註:server listens on `http://localhost:port`     <font color="#f00">70.39有開放port:3333外部連線</font>
+- 備註:server listens on `http://localhost:port`     
 port 會根據`mongodb-grafana/server/config/default.json`![](https://i.imgur.com/G3INcEW.png)
