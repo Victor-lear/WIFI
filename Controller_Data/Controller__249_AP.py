@@ -565,4 +565,3 @@ def start_Controller_249_AP():
 
     print('AP_data OK')
     print("total running period?%.2f?" % total_time)
-

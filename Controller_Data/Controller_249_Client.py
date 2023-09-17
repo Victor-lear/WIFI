@@ -71,7 +71,6 @@ def start_Controller_249_Client():
     header_tags = soup.find_all('header')
     row_tags = soup.find_all('row')
 
-
     # =============================================================================
 
     # Rearrange DataFrame: put into df[]
