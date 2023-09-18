@@ -3,6 +3,7 @@
 WIFI
 |__ Main.py #啟動所有程式
 |__ Controller_Data
+|__ Controller_Data
 |  |__ Controller_249_AP.py #爬取249控制器AP資料
 |  |__ Controller_248_AP.py #爬取248控制器AP資料
 |  |__ Controller_249_Client.py #爬取249控制器Client資料
