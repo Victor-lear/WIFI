@@ -1,8 +1,5 @@
+# Start Program
 
-<!-- TOC -->
--[# Linux_CentOS 8 installing](# Linux_CentOS 8 installing)
-  -[## Robo3T install](## Robo3T install)
-<!-- /TOC -->
 # Linux_CentOS 8 installing
 ## Robo3T install
 - [Robo3T安裝參考網站](https://www.centlinux.com/2020/09/install-robo-3t-mongodb-gui-on-centos-8.html  )
