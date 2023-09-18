@@ -1,24 +1,17 @@
 # Program Description
-## Main.py
-- 啟動所有程式
-## Controller_Data
-### Controller_249_AP.py
-- 爬取249控制器AP資料
-### Controller_248_AP.py
-- 爬取248控制器AP資料
-### Controller_249_Client.py
-- 爬取249控制器Client資料
-### Controller_248_Client.py
-- 爬取248控制器Client資料
-## Mongo
-### mongo.py
-- 根據所需資料設定存取資料格式
-## Data_Analysis
-### wifi_count_hour.py
-- 每小時上下行流量
-- 每小時連線人數
-### wifi_count_hour.py
-- 資料預處理刪除靜態設備
+
+WIFI
+|__ Main.py #啟動所有程式
+|__ Controller_Data
+|  |__ Controller_249_AP.py #爬取249控制器AP資料
+|  |__ Controller_248_AP.py #爬取248控制器AP資料
+|  |__ Controller_249_Client.py #爬取249控制器Client資料
+|  |__ Controller_248_Client.py #爬取248控制器Client資料
+|__ Mongo
+|  |__ mongo.py #根據所需資料設定存取資料格式
+|__ Data_Analysis
+|  |__ wifi_count_hour.py #每小時上下行流量、連線人數
+|  |__ wifi_client_filter_out_device.py #資料預處理刪除靜態設備
 
 # Linux_CentOS 8 installing
 ## Robo3T install
