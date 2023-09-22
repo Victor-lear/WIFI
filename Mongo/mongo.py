@@ -7,8 +7,6 @@ import csv
 import os
 from datetime import datetime
 import time
-mongo_url_01 = os.getenv('MongoClient')
-mongo_url_02 = os.getenv('MongoClient')
 
 
 def WIFI_OldData(DB, Collection):
@@ -60,11 +58,7 @@ def WIFI_FindData(DB, Collection, Search):
         cursor = collection.find(Search)
         data = [d for d in cursor]
     except:
-        conn = MongoClient(mongo_url_02)
-        db = conn[DB]
-        collection = db[Collection]
-        cursor = collection.find(Search)
-        data = [d for d in cursor]
+        data=False
     if data == []:
         return False
     else:
