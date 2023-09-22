@@ -199,9 +199,6 @@ def start_Controller_249_Client():
     col1 = db1["Controller4"]
     col1.insert_many(data_json3)
 
-    db2 = client['Client']
-    col2 = db2["may_data"]
-    col2.insert_many(data_json3)
 
     end_time = time.time()
     total_time = end_time - start_time

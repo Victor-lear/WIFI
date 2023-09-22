@@ -555,9 +555,7 @@ def start_Controller_249_AP():
     col1 = db1["Controller4"]
     col1.insert_many(data_json)
 
-    db2 = client['AP']
-    col2 = db2["may_data"]
-    col2.insert_many(data_json)
+
 
     end_time = time.time()
     total_time = end_time - start_time
