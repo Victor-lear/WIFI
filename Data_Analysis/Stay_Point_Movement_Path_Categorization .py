@@ -19,8 +19,7 @@ data=WCFOD.Filter_out_device("AP","April",start_time,end_time)
 user_name=[]
 for i in range(len(data)-2):
    user_name.append(data[i]['client_user_name'])
-index = [i for i, value in enumerate(user_name) if value == "140.118.134.14"]
-print(index)
+
 for i in range(len(data[len(data)-1])):
     if(int(data[len(data)-1][i]['ap_identifiers_count'])>=2):
          index = [i for i, value in enumerate(user_name) if value == data[len(data)-1][i]['user_name']]
