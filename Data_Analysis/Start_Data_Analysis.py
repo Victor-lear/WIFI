@@ -8,8 +8,9 @@ sys.path.append(parent_dir)
 import json
 from datetime import datetime
 from datetime import timedelta
-import wifi_client_filter_out_device as WCFOD
-import Stay_Point_Movement_Path_Categorization as SPMPC
+from Data_Analysis import wifi_client_filter_out_device as WCFOD
+from Data_Analysis import Movement_Path_Categorization as SPMPC
+
 
 for i in range(30):
     start_time=1696089600+86400*i
