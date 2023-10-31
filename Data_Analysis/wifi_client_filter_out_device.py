@@ -17,7 +17,7 @@ import  Mongo.mongo  as mongo
 def Filter_out_device(DB,Collection,start_time,end_time):
     # 提取原始數據
     search_data = {"Datetime": {"$gte": start_time, "$lte": end_time}}
-    raw_data =  mongo.WIFI_FindData('AP_test','April_Client',search_data)
+    raw_data =  mongo.WIFI_FindData(DB,Collection,search_data)
     print("ok")
 
 

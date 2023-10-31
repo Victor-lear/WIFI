@@ -8,7 +8,6 @@ import os
 from datetime import datetime
 import time
 
-
 def WIFI_OldData(DB, Collection):
     global mongo_url_01, mongo_url_02
     try:
@@ -64,7 +63,8 @@ def WIFI_FindData(DB, Collection, Search):
     else:
         return data
 
-
+data=WIFI_FindData("AP_test","stay","")
+print(data)
 def WIFI_WriteInDB(DB, Collection, new_data):
     global mongo_url_01, mongo_url_02
     try:
@@ -78,7 +78,19 @@ def WIFI_WriteInDB(DB, Collection, new_data):
         db = conn[DB]
         collection = db[Collection]
         collection.insert_many(new_data)
+def WIFI_WriteInDB_one(DB, Collection, new_data):
+    global mongo_url_01, mongo_url_02
+    try:
+        conn = MongoClient(mongo_url_01)
+        db = conn[DB]
+        collection = db[Collection]
+        collection.insert_one(new_data)
+    except:
 
+        conn = MongoClient(mongo_url_02)
+        db = conn[DB]
+        collection = db[Collection]
+        collection.insert_one(new_data)
 
 def WIFI_DelData(DB, Collection, document_id):
     global mongo_url_01, mongo_url_02
