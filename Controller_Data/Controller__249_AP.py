@@ -1,3 +1,9 @@
+import sys
+#######################
+current_dir = os.path.dirname(__file__)
+parent_dir = os.path.abspath(os.path.join(current_dir, '..'))
+sys.path.append(parent_dir)
+#######################
 import pandas as pd
 import requests
 import warnings
@@ -16,7 +22,7 @@ from bson.objectid import ObjectId
 from datetime import timedelta
 import os
 from dotenv import load_dotenv
-
+import Mongo.mongo as Mongo
 def start_Controller_249_AP():
     load_dotenv()
     start_time = time.time()
@@ -549,12 +555,8 @@ def start_Controller_249_AP():
     # select mongo database
     # select mongo collection in db
     # put the combined json data into db
-    MongoClient_data=os.getenv('MongoClient')
-    client = MongoClient(MongoClient_data)
-    db1 = client['AP']
-    col1 = db1["Controller4"]
-    col1.insert_many(data_json)
-
+    
+    Mongo.WIFI_WriteInDB('AP','Controller4',data_json)
 
 
     end_time = time.time()

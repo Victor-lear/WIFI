@@ -1,3 +1,9 @@
+import sys
+#######################
+current_dir = os.path.dirname(__file__)
+parent_dir = os.path.abspath(os.path.join(current_dir, '..'))
+sys.path.append(parent_dir)
+#######################
 from datetime import datetime, timedelta
 from bson.objectid import ObjectId
 from datetime import timedelta
@@ -15,6 +21,7 @@ from pymongo import MongoClient
 import re
 import arubaapi
 from dotenv import load_dotenv
+import Mongo.mongo as Mongo
 
 def start_Controller_248_AP():
     load_dotenv()
@@ -555,12 +562,8 @@ def start_Controller_248_AP():
     # select mongo collection in db
     # put the combined json data into db
 
-    MongoClient_data=os.getenv('MongoClient')
-    client = MongoClient(MongoClient_data)
-    db1 = client['AP']
-    col1 = db1["Controller4"]
-    col1.insert_many(data_json)
-
+    
+    Mongo.WIFI_WriteInDB('AP','Controller4',data_json)
 
     end_time = time.time()
     total_time = end_time - start_time

@@ -1,6 +1,6 @@
 import os
 import sys
-####獲取當前文件目錄####
+####????????####
 current_dir = os.path.dirname(__file__)
 parent_dir = os.path.abspath(os.path.join(current_dir, '..'))
 sys.path.append(parent_dir)
@@ -12,7 +12,7 @@ from datetime import timedelta
 import wifi_client_filter_out_device as WCFOD
 import Mongo.mongo as mongo
 
-def Stay_Point_Movement_path(DB,Collection,start_time,end_time):
+def Stay_Point_Movement_path(DB,Collection,start_time_stamp,end_time_stamp):
    def split_data(data):
       split_data = data.split("_")
       if (len(split_data)==4):
@@ -21,16 +21,15 @@ def Stay_Point_Movement_path(DB,Collection,start_time,end_time):
          split_data[2]=split_data[3]
          split_data.pop()
       return split_data
-   stimestamp=1680278400
-   start_time = datetime.fromtimestamp(stimestamp)
-   etimestamp=1680364799
-   end_time = datetime.fromtimestamp(etimestamp)
+   
+   start_time = datetime.fromtimestamp(start_time_stamp)
+   end_time = datetime.fromtimestamp(end_time_stamp)
    data=WCFOD.Filter_out_device("Client","Controller4",start_time,end_time)
    user_mac=[]
    for i in range(len(data)-2):
       user_mac.append(data[i]['sta_mac_address'])
 
-   set_user_mac=list(set(user_mac))#去除相同資料
+   set_user_mac=list(set(user_mac))
    stay=[]
    staycont=0
    for i in range(len(set_user_mac)):
@@ -66,8 +65,6 @@ def Stay_Point_Movement_path(DB,Collection,start_time,end_time):
             start_way=split_data(stay[i-1]['ap_name'])
             end_way=split_data(stay[i]['ap_name'])
             data={
-                  #'sta_mac_address':stay[i]['sta_mac_address'],
-                  #'client_user_name':stay[i]['client_user_name'],
                   'start_way':start_way[0],
                   'end_way':end_way[0],
                   'start_time':Starttime,
@@ -80,8 +77,8 @@ def Stay_Point_Movement_path(DB,Collection,start_time,end_time):
    path_data=[]
    for i in range(len(move_start_end_data)):
       for j in range(24):
-         stime=stimestamp+3600*j
-         etime=stimestamp+3599+3600*j
+         stime=start_time_stamp+3600*j
+         etime=start_time_stamp+3599+3600*j
          pathdata={
             'path':move_start_end_data[i],
             'num':0,
